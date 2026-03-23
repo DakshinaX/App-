@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">Healthy rest starts here</p>
+          <h1>Sleep Tracker</h1>
+          <p class="hero-copy">
+            Log your nights, spot patterns, and stay on top of your sleep goals.
+          </p>
+        </div>
+        <div class="goal-badge">
+          <span>Goal</span>
+          <strong>8 hrs</strong>
+        </div>
+      </section>
+
+      <section class="grid-layout">
+        <section class="card form-card">
+          <div class="section-heading">
+            <h2>Add sleep entry</h2>
+            <p>Track bedtime, wake-up time, and how rested you felt.</p>
+          </div>
+
+          <form id="sleep-form" class="sleep-form">
+            <label>
+              Date
+              <input type="date" id="sleep-date" required />
+            </label>
+            <label>
+              Bedtime
+              <input type="time" id="bedtime" required />
+            </label>
+            <label>
+              Wake-up time
+              <input type="time" id="wake-time" required />
+            </label>
+            <label>
+              Sleep quality
+              <select id="sleep-quality">
+                <option value="Great">Great</option>
+                <option value="Good">Good</option>
+                <option value="Okay">Okay</option>
+                <option value="Poor">Poor</option>
+              </select>
+            </label>
+            <label>
+              Notes
+              <textarea
+                id="sleep-notes"
+                rows="3"
+                placeholder="Coffee late? Screen-free before bed? Any dreams?"
+              ></textarea>
+            </label>
+            <button type="submit">Save entry</button>
+          </form>
+        </section>
+
+        <section class="card stats-card">
+          <div class="section-heading">
+            <h2>Sleep overview</h2>
+            <p>Your latest trends update automatically.</p>
+          </div>
+
+          <div class="stats-grid">
+            <article>
+              <span>Average sleep</span>
+              <strong id="avg-sleep">0 hrs</strong>
+            </article>
+            <article>
+              <span>Best streak</span>
+              <strong id="best-streak">0 nights</strong>
+            </article>
+            <article>
+              <span>Last night</span>
+              <strong id="last-night">—</strong>
+            </article>
+          </div>
+
+          <div class="tips-panel">
+            <h3>Daily tip</h3>
+            <p id="sleep-tip">
+              Consistency matters: try going to bed and waking up at the same time each day.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <section class="card entries-card">
+        <div class="section-heading row-between">
+          <div>
+            <h2>Recent sleep log</h2>
+            <p>Your saved nights are stored in this browser.</p>
+          </div>
+          <button id="clear-entries" class="secondary-button" type="button">
+            Clear all
+          </button>
+        </div>
+
+        <div id="empty-state" class="empty-state">
+          No entries yet. Add your first night of sleep to start tracking.
+        </div>
+
+        <div id="entries-list" class="entries-list"></div>
+      </section>
+    </main>
+
+    <template id="entry-template">
+      <article class="entry-item">
+        <div>
+          <h3 class="entry-date"></h3>
+          <p class="entry-duration"></p>
+        </div>
+        <div class="entry-meta">
+          <span class="entry-quality"></span>
+          <p class="entry-notes"></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
